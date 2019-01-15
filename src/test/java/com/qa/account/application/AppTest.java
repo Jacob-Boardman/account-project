@@ -11,40 +11,46 @@ import com.qa.account.service.Service;
 public class AppTest {
 
 	private Service service;
-	private Account a;
+	private Account account;
 	private String name = "Jacob"; 
 
 	@Before
 	public void setUP() {
 		service = new Service();
-		a = new Account(name, "Boardman", 123);
+		account = new Account(name, "Boardman", 123);
 	}
 
 	@Test
 	public void testMakingAccs() {
 
-		assertEquals(name, a.getFirstName());
-		assertEquals("Boardman", a.getLastName());
-		assertEquals(123, a.getAccountNumber());
-		assertEquals("Account: FirstName=Jacob, LastName=Boardman, Account Number=123", a.toString());
+		assertEquals(name, account.getFirstName());
+		assertEquals("Boardman", account.getLastName());
+		assertEquals(123, account.getAccountNumber());
+		assertEquals("Account: FirstName=Jacob, LastName=Boardman, Account Number=123", account.toString());
 	}
 
 	@Test
 	public void testAddAccountToMap() {
-		service.addAccount(a);
+		service.addAccount(account);
 		assertEquals(false, service.getAccs().getAccounts().isEmpty());
 	}
 
 	@Test
 	public void testRemovingAccountFromMap() {
-		service.addAccount(a);
+		service.addAccount(account);
 		service.removeAccount(123);
 		assertEquals(true, service.getAccs().getAccounts().isEmpty());
 	}
 
 	@Test
 	public void testGettingAccountFromMap() {
-		service.addAccount(a);
+		service.addAccount(account);
 		assertEquals(name, service.getAccount(123).getFirstName());
+	}
+	
+	@Test
+	public void testConvertToJSON() {
+		service.addAccount(account);
+		assertEquals("{\"accounts\":{\"123\":{\"firstName\":\"Jacob\",\"lastName\":\"Boardman\",\"accountNumber\":123}}}", service.getJSON());
 	}
 }

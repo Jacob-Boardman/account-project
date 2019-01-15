@@ -2,10 +2,12 @@ package com.qa.account.service;
 
 import com.qa.account.application.Account;
 import com.qa.accounts.data.AccountsMap;
+import com.qa.accounts.util.JSONUtil;
 
 public class Service {
 
 	private AccountsMap accounts = new AccountsMap();
+	private JSONUtil json = new JSONUtil(); 
 
 	public void addAccount(Account acc) {
 
@@ -24,7 +26,9 @@ public class Service {
 		
 		return accounts.getAccounts().get(accountNum);
 	}
-	
-	
 
+	public Object getJSON() {
+		return json.getJSONForObject(accounts);
+	}
+	
 }
