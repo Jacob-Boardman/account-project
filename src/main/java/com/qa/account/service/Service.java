@@ -1,7 +1,7 @@
-package com.qa.account_service;
+package com.qa.account.service;
 
-import com.qa.account_application.Account;
-import com.qa.accounts_data.AccountsMap;
+import com.qa.account.application.Account;
+import com.qa.accounts.data.AccountsMap;
 
 public class Service {
 

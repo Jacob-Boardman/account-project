@@ -1,12 +1,15 @@
-package com.qa.account_application;
+package com.qa.account.application;
 
-import com.qa.account_service.Service;
+import com.qa.account.service.Service;
 
 /**
  * Hello world!
  *
  */
 public class App {
+	
+	private App() {};
+	
 	public static void main(String[] args) {
 		Service service = new Service();
 		Account a1 = new Account("Jacob", "Boardman", 123);

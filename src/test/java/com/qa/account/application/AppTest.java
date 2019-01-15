@@ -1,27 +1,29 @@
-package com.qa.account_application;
+package com.qa.account.application;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.qa.account_service.Service;
+import com.qa.account.application.Account;
+import com.qa.account.service.Service;
 
 public class AppTest {
 
-	Service service;
-	Account a;
+	private Service service;
+	private Account a;
+	private String name = "Jacob"; 
 
 	@Before
 	public void setUP() {
 		service = new Service();
-		a = new Account("Jacob", "Boardman", 123);
+		a = new Account(name, "Boardman", 123);
 	}
 
 	@Test
 	public void testMakingAccs() {
 
-		assertEquals("Jacob", a.getFirstName());
+		assertEquals(name, a.getFirstName());
 		assertEquals("Boardman", a.getLastName());
 		assertEquals(123, a.getAccountNumber());
 		assertEquals("Account: FirstName=Jacob, LastName=Boardman, Account Number=123", a.toString());
@@ -43,6 +45,6 @@ public class AppTest {
 	@Test
 	public void testGettingAccountFromMap() {
 		service.addAccount(a);
-		assertEquals("Jacob", service.getAccount(123).getFirstName());
+		assertEquals(name, service.getAccount(123).getFirstName());
 	}
 }
