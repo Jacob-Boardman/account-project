@@ -1,38 +1,48 @@
 package com.qa.account_application;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import org.junit.Before;
+import org.junit.Test;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+import com.qa.account_service.Service;
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+
+	Service service;
+	Account a;
+
+	@Before
+	public void setUP() {
+		service = new Service();
+		a = new Account("Jacob", "Boardman", 123);
+	}
+
+	@Test
+	public void testMakingAccs() {
+
+		assertEquals("Jacob", a.getFirstName());
+		assertEquals("Boardman", a.getLastName());
+		assertEquals(123, a.getAccountNumber());
+		assertEquals("Account: FirstName=Jacob, LastName=Boardman, Account Number=123", a.toString());
+	}
+
+	@Test
+	public void testAddAccountToMap() {
+		service.addAccount(a);
+		assertEquals(false, service.getAccs().getAccounts().isEmpty());
+	}
+
+	@Test
+	public void testRemovingAccountFromMap() {
+		service.addAccount(a);
+		service.removeAccount(123);
+		assertEquals(true, service.getAccs().getAccounts().isEmpty());
+	}
+
+	@Test
+	public void testGettingAccountFromMap() {
+		service.addAccount(a);
+		assertEquals("Jacob", service.getAccount(123).getFirstName());
+	}
 }
