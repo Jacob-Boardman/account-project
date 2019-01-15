@@ -20,6 +20,7 @@ public class App {
 		service.addAccount(a2);
 		service.addAccount(a3);
 		
+		System.out.println(service.getJSON());
 
 	}
 }
