@@ -13,13 +13,15 @@ public class AppTest {
 	private Service service;
 	private Account account1;
 	private Account account2;
+	private Account account3;
 	private String name = "Jacob"; 
 
 	@Before
 	public void setUP() {
 		service = new Service();
 		account1 = new Account(name, "Boardman", 123);
-		account2 = new Account(name, "Gurney", 456);
+		account2 = new Account(name, "Springfield", 456);
+		account3 = new Account("Joseph", "Gurney", 789);
 	}
 
 	@Test
@@ -40,32 +42,58 @@ public class AppTest {
 	@Test
 	public void testRemovingAccountFromMap() {
 		service.addAccount(account1);
-		service.removeAccount(123);
+		service.removeAccount(1);
 		assertEquals(true, service.getAccs().getAccounts().isEmpty());
 	}
 
 	@Test
 	public void testGettingAccountFromMap() {
 		service.addAccount(account1);
-		assertEquals(name, service.getAccount(123).getFirstName());
+		assertEquals(name, service.getAccount(1).getFirstName());
 	}
 	
 	@Test
 	public void testConvertToJSON() {
 		service.addAccount(account1);
-		assertEquals("{\"accounts\":{\"123\":{\"firstName\":\"Jacob\",\"lastName\":\"Boardman\",\"accountNumber\":123}}}", service.getJSON());
+		assertEquals("{\"accounts\":{\"1\":{\"firstName\":\"Jacob\",\"lastName\":\"Boardman\",\"accountNumber\":123}}}", service.getJSON());
 	}
 	
 	@Test
 	public void testCounter() {
 		service.addAccount(account1);
-		assertEquals(1,service.countAccounts("Jacob"));
+		assertEquals(1,service.countAccounts());
 	}
 	
 	@Test
 	public void testCounter2() {
 		service.addAccount(account1);
 		service.addAccount(account2);
-		assertEquals(2,service.countAccounts("Jacob"));
+		assertEquals(2,service.countAccounts());
+	}
+	
+	@Test
+	public void testCounter3() {
+		service.addAccount(account1);
+		service.addAccount(account2);
+		service.addAccount(account3);
+		assertEquals(3, service.countAccounts());
+	}
+	
+	@Test 
+	public void testCounter4()
+	{
+		service.addAccount(account1);
+		service.addAccount(account2);
+		service.addAccount(account3);
+		assertEquals(true, service.countAccounts2("Jacob"));
+	}
+	
+	@Test 
+	public void testCounter5()
+	{
+		service.addAccount(account1);
+		service.addAccount(account2);
+		service.addAccount(account3);
+		assertEquals(2, service.countAccounts2("Jacob"));
 	}
 }
