@@ -8,7 +8,7 @@ import org.junit.Test;
 import com.qa.account.application.Account;
 import com.qa.account.service.Service;
 
-public class AppTest {
+public class ServiceTest {
 
 	private Service service;
 	private Account account1;
@@ -59,41 +59,27 @@ public class AppTest {
 	}
 	
 	@Test
-	public void testCounter() {
+	public void testReturnTheAccountsSize() {
 		service.addAccount(account1);
-		assertEquals(1,service.countAccounts());
+		assertEquals(1,service.returnTheAccountsSize());
 	}
 	
-	@Test
-	public void testCounter2() {
-		service.addAccount(account1);
-		service.addAccount(account2);
-		assertEquals(2,service.countAccounts());
-	}
-	
-	@Test
-	public void testCounter3() {
-		service.addAccount(account1);
-		service.addAccount(account2);
-		service.addAccount(account3);
-		assertEquals(3, service.countAccounts());
-	}
 	
 	@Test 
-	public void testCounter4()
+	public void testIteratingThroughMapToFindValueBasedOnName()
 	{
 		service.addAccount(account1);
 		service.addAccount(account2);
 		service.addAccount(account3);
-		assertEquals(true, service.countAccounts2("Jacob"));
+		assertEquals(true, service.returnBoolIfFoundValueInMap(name));
 	}
 	
 	@Test 
-	public void testCounter5()
+	public void testFinalMethodToCountThroughMapBasedOnName()
 	{
 		service.addAccount(account1);
 		service.addAccount(account2);
 		service.addAccount(account3);
-		assertEquals(2, service.countAccounts3("Jacob"));
+		assertEquals(2, service.countThroughAccounts(name));
 	}
 }

@@ -8,7 +8,8 @@ public class Service {
 
 	private AccountsMap accounts = new AccountsMap();
 	private JSONUtil json = new JSONUtil();
-	int counter = 0;
+	private int counter = 0;
+	private int mapCounter = 0;
 
 	public void addAccount(Account acc) {
 		counter = counter+1; 
@@ -32,12 +33,12 @@ public class Service {
 		return json.getJSONForObject(accounts);
 	}
 
-	public int countAccounts() {
+	public int returnTheAccountsSize() {
 
 		return accounts.getAccounts().size();
 	}
 
-	public boolean countAccounts2(String name) {
+	public boolean returnBoolIfFoundValueInMap(String name) {
 		boolean isfound = false;
 		
 		for(Account account : accounts.getAccounts().values())
@@ -51,18 +52,17 @@ public class Service {
 		return isfound;
 	}
 	
-	public int countAccounts3(String name) {
-		int counter = 0;
+	public int countThroughAccounts(String name) {
 		
 		for(Account account : accounts.getAccounts().values())
 		{
 			if(account.getFirstName().equals(name))
 			{
-				counter++;
+				this.mapCounter++;
 			}
 		}
 		
-		return counter;
+		return this.mapCounter;
 	}
 	
 
