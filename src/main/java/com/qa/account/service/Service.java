@@ -51,5 +51,19 @@ public class Service {
 		return isfound;
 	}
 	
+	public int countAccounts3(String name) {
+		int counter = 0;
+		
+		for(Account account : accounts.getAccounts().values())
+		{
+			if(account.getFirstName().equals(name))
+			{
+				counter++;
+			}
+		}
+		
+		return counter;
+	}
+	
 
 }

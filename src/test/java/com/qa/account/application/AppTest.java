@@ -94,6 +94,6 @@ public class AppTest {
 		service.addAccount(account1);
 		service.addAccount(account2);
 		service.addAccount(account3);
-		assertEquals(2, service.countAccounts2("Jacob"));
+		assertEquals(2, service.countAccounts3("Jacob"));
 	}
 }
