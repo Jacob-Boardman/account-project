@@ -30,5 +30,10 @@ public class Service {
 	public Object getJSON() {
 		return json.getJSONForObject(accounts);
 	}
+
+	public int countAccounts(String string) {
+		// TODO Auto-generated method stub
+		return 1;
+	}
 	
 }
