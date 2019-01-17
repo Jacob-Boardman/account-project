@@ -7,22 +7,22 @@ import javax.persistence.Id;
 
 @Entity
 public class Account {
-	
+
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	private Long id;
 	private String firstName;
 	private String lastName;
-	private int accountNumber;
+	private Long accountNumber;
 
-	public Account(String firstName, String lastName, int accountNumber) {
+	public Account(String firstName, String lastName, Long accountNumber) {
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
 		this.setAccountNumber(accountNumber);
 	}
-	
+
 	public Account() {
-		
+
 	}
 
 	@Override
@@ -46,11 +46,11 @@ public class Account {
 		this.lastName = lastName;
 	}
 
-	public int getAccountNumber() {
+	public Long getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(int accountNumber) {
+	public void setAccountNumber(Long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 

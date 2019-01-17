@@ -1,4 +1,4 @@
-package com.qa.account.application;
+/*package com.qa.account.application;
 
 import static org.junit.Assert.*;
 
@@ -71,7 +71,7 @@ public class AccountMapTest {
 		service.createAccount(account1);
 		service.createAccount(account2);
 		service.createAccount(account3);
-		assertEquals(true, service.returnBoolIfFoundValueInMap(name));
+		assertEquals(true, service.findValueInMap(name));
 	}
 	
 	@Test 
@@ -83,3 +83,4 @@ public class AccountMapTest {
 		assertEquals(2, service.countThroughAccounts(name));
 	}
 }
+*/
