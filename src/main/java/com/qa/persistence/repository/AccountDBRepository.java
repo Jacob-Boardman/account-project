@@ -30,7 +30,7 @@ public class AccountDBRepository implements AccountRepository {
 
 	@Override
 	public String getAllAccounts() {
-		Query query = manager.createQuery("SELECT a FROM a");
+		Query query = manager.createQuery("SELECT a FROM Account a");
 		Collection<Account> accounts = (Collection<Account>) query.getResultList();
 		return util.getJSONForObject(accounts);
 	}
@@ -38,7 +38,7 @@ public class AccountDBRepository implements AccountRepository {
 	@Transactional(REQUIRED)
 	@Override
 	public String getAccountByID(Long id) {
-		Query query = manager.createQuery("SELECT a FROM a WHERE id = id");
+		Query query = manager.createQuery("SELECT a FROM Account a WHERE id = id");
 		Account account = (Account) query.getResultList();
 		return util.getJSONForObject(account);
 	}

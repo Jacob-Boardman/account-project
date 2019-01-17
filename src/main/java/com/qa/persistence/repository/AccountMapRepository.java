@@ -1,12 +1,20 @@
 package com.qa.persistence.repository;
 
+import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
+
 import com.qa.domain.Account;
 import com.qa.util.JSONUtil;
 
+@Alternative
 public class AccountMapRepository implements AccountRepository {
-
-	private AccountsMap accounts = new AccountsMap();
-	private JSONUtil json = new JSONUtil();
+	
+	@Inject
+	private AccountsMap accounts;
+	
+	@Inject
+	private JSONUtil json;
+	
 	private Long counter = (long) 0;
 	private int mapCounter = 0;
 
