@@ -7,13 +7,12 @@ import com.qa.domain.Account;
 import java.util.HashMap;
 
 public class AccountsMap {
-	
-	private Map<Long, Account> accounts = new HashMap<>();
-	
-	public AccountsMap(){
-		
-	}
 
+	private Map<Long, Account> accounts = new HashMap<>();
+
+	public AccountsMap() {
+
+	}
 
 	public Map<Long, Account> getAccounts() {
 		return accounts;

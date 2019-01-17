@@ -8,13 +8,13 @@ import com.qa.util.JSONUtil;
 
 @Alternative
 public class AccountMapRepository implements AccountRepository {
-	
+
 	@Inject
 	private AccountsMap accounts;
-	
+
 	@Inject
 	private JSONUtil json;
-	
+
 	private Long counter = (long) 0;
 	private int mapCounter = 0;
 
@@ -48,7 +48,7 @@ public class AccountMapRepository implements AccountRepository {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public int returnTheAccountsSize() {
 
 		return accounts.getAccounts().size();
@@ -80,6 +80,5 @@ public class AccountMapRepository implements AccountRepository {
 	public AccountsMap getAccs() {
 		return accounts;
 	}
-
 
 }
