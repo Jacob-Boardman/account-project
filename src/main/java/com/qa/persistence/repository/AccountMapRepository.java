@@ -43,6 +43,12 @@ public class AccountMapRepository implements AccountRepository {
 		return json.getJSONForObject(accounts.getAccounts().get(mapKey));
 	}
 
+	@Override
+	public String updateAccount(Long id, String account) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public int returnTheAccountsSize() {
 
 		return accounts.getAccounts().size();
@@ -74,5 +80,6 @@ public class AccountMapRepository implements AccountRepository {
 	public AccountsMap getAccs() {
 		return accounts;
 	}
+
 
 }
