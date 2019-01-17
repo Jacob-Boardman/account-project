@@ -1,7 +1,16 @@
-package com.qa.account.application;
+package com.qa.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Account {
-
+	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private int accountNumber;
@@ -10,6 +19,10 @@ public class Account {
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
 		this.setAccountNumber(accountNumber);
+	}
+	
+	public Account() {
+		
 	}
 
 	@Override
